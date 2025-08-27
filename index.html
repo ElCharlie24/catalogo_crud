@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        
+        <meta charset="UTF-8" />
+        <title>Catálogo</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <div class="contenido">
+            <h1>Catálogo</h1>
+
+            <!-- Creación de un Registro-->
+            <form id="formulario">
+                <input type="text" id="titulo" placeholder="Título de la tarea" required />
+                <textarea id="descripcion" placeholder="Descripción"></textarea>
+                <button type="submit">Agregar Tarea</button>
+            </form>
+
+            <hr>
+
+            <!-- Listado-->
+             <div id="lista_tarea">
+                <!-- Aqui se mostrara la ista-->
+             </div>
+        </div>
+        
+        <script src="app.js"></script>
+    </body>
+</html>
