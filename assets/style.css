@@ -1,0 +1,38 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.contenido {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario input, .formulario textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.titulo {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.titulo-botones {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.titulo-botones boton {
+  margin-left: 5px;
+}
