@@ -5,30 +5,38 @@
         <meta charset="UTF-8" />        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/estilos.css" />
-        <script script="assets/index.js"></script>
-
     </head>
-    <body>
-        <div class="contenido">
-            <h1>Catálogo</h1>
 
-            <!-- Creación de un Registro-->
+    <body>
+        <header>
+            <h1>Catálogo</h1>
+        </header>
+
+        <div class="contenido">
+         <!-- Creación de un Registro-->
             <section>
                 <form id="formulario">
-                    <input type="text" id="titulo" placeholder="Título de la tarea" required />
-                    <textarea id="descripcion" placeholder="Descripción"></textarea>
-                    <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+                    <input type="hidden" id="id">
+                    <input type="text" id="titulo" placeholder="Nombre del Producto" required />
+                    <input type="number" id="precio" placeholder="Precio" required>
+                    <textarea id="descripcion" placeholder="Descripción" required></textarea>
+                    <button type="submit" class="btn btn-primary">Agregar Producto</button>
                 </form>
             </section> 
 
-            <hr>
-
             <!-- Listado-->
-             <div id="lista_tarea">
-                <!-- Aqui se mostrara la ista-->
-             </div>
+             <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="listaProducto"></tbody>
         </div>
         
-        <script src="app.js"></script>
+        <script script="assets/crud.js"></script>
     </body>
 </html>
