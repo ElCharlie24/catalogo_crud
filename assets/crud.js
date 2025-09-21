@@ -14,11 +14,11 @@ class CatalogoManager {
     }
 
     save() {
-        localStorage.setItem("catalogoProductos", JSON.stringify(this.catcatalogoProductosalogo));
+        localStorage.setItem("catalogoProductos", JSON.stringify(this.catalogoProductos));
     }
 
     add(catalogos) {
-        this.catalcatalogoProductosogo.push(catalogos);
+        this.catalogoProductos.push(catalogos);
         this.save();
     }
 
@@ -47,7 +47,7 @@ const inputDescripcion = document.getElementById("descripcion");
 
 function modificarCatalogo() {
     productList.innerHTML = "";
-    manager.getAll().array.forEach(catalcatalogoProductosogo => {
+    manager.getAll().array.forEach(catalogoProductos => {
         const row = document.createElement("tr");
 
             row.innerHTML = `
@@ -63,7 +63,7 @@ function modificarCatalogo() {
         productList.appendChild(row);
     });
       /**  row.innerHTML =
-            <td data-label="ID">${catcatalogoProductosalogo.id}</td>
+            <td data-label="ID">${catalogoProductos.id}</td>
             <td data-label="Producto">${catalogoProductos.titulo}</td>
             <td data-label="Precio">${catalogoProductos.precio}</td>
             <td data-label="DescripcionProducto">${catalogoProductos.descripcion}</td>
