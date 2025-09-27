@@ -19,8 +19,8 @@
                     <input type="hidden" id="id">
                     <input type="text" id="titulo" placeholder="Nombre del Producto" required />
                     <input type="number" id="precio" placeholder="Precio" required>
-                    <textarea id="descripcion" placeholder="Descripción" required></textarea>
-                    <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                    <input type="text" id="descripcion" placeholder="Descripción" required />
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </section> 
 
@@ -31,12 +31,12 @@
                         <th>Id</th>
                         <th>Producto</th>
                         <th>Precio</th>
-                        <th>Acciones</th>
+                        <th>Descripción</th>
                     </tr>
                 </thead>
                 <tbody id="listaProducto"></tbody>
         </div>
         
-        <script script="assets/crud.js"></script>
+        <script src="assets/crud.js"></script>
     </body>
 </html>

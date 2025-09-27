@@ -23,7 +23,7 @@ class CatalogoManager {
     }
 
     update(updateCatalogo) {
-        this.catalogoProductos = this.catalogoProductos.map(p => this.catalogoProductos.id === updateCatalogo.id ? updateCatalogo : c);
+        this.catalogoProductos = this.catalogoProductos.map(c => this.catalogoProductos.id === updateCatalogo.id ? updateCatalogo : c);
         this.save();
     }
 
@@ -47,33 +47,21 @@ const inputDescripcion = document.getElementById("descripcion");
 
 function modificarCatalogo() {
     productList.innerHTML = "";
-    manager.getAll().array.forEach(catalogoProductos => {
+    manager.getAll().forEach(catalogos => {
         const row = document.createElement("tr");
 
             row.innerHTML = `
-            <td data-label="ID">${catalogoProductos.id}</td>
-            <td data-label="Nombre">${catalogoProductos.titulo}</td>
-            <td data-label="Precio">$${catalogoProductos.precio}</td>
-            <td data-label="Descripcion">$${catalogoProductos.descripcion}</td>
+            <td data-label="ID">${catalogos.id}</td>
+            <td data-label="Nombre">${catalogos.titulo}</td>
+            <td data-label="Precio">$${catalogos.precio}</td>
+            <td data-label="Descripcion">${catalogos.descripcion}</td>
             <td class="actions">
-                <button onclick="editCatalogo(${catalogoProductos.id})">✏️ Editar</button>
-                <button onclick="deleteCatalogo(${catalogoProductos.id})">🗑️ Eliminar</button>
+                <button onclick="editCatalogo(${catalogos.id})">✏️ Editar</button>
+                <button onclick="deleteCatalogo(${catalogos.id})">🗑️ Eliminar</button>
             </td>
         `;
         productList.appendChild(row);
     });
-      /**  row.innerHTML =
-            <td data-label="ID">${catalogoProductos.id}</td>
-            <td data-label="Producto">${catalogoProductos.titulo}</td>
-            <td data-label="Precio">${catalogoProductos.precio}</td>
-            <td data-label="DescripcionProducto">${catalogoProductos.descripcion}</td>
-            <td class="actions">
-                <button onclick="editCatalogo(${catalogoProductos.id})">✏️ Editar</button>
-                <button onclick="deleteCatalogo(${catalogoProductos.id})">🗑️ Eliminar</button>
-            </td>
-        ;
-        productList.appendChild(row);
-    });*/
 }
 
 form.addEventListener("submit", e => {
@@ -82,12 +70,12 @@ form.addEventListener("submit", e => {
     const id = inputId.value ? parseInt(inputId.value) : Date.now();
     const titulo = inputNombre.value;
     const precio = parseFloat(inputPrecio.value);
-    const descripcion = parseFloat(inputDescripcion.value);
+    const descripcion = inputDescripcion.value;
 
     if (inputId.value) {
-        manager.update(new Product(id, titulo, precio, descripcion));
+        manager.update(new Catalogo(id, titulo, precio, descripcion));
     } else {
-        manager.add(new Product(id, titulo, precio, descripcion));
+        manager.add(new Catalogo(id, titulo, precio, descripcion));
     }
 
     form.reset();
@@ -96,10 +84,12 @@ form.addEventListener("submit", e => {
 });
 
 function editCatalogo(id) {
-    const product = manager.getAll().find(c => c.id === id);
-    inputId.value = product.id;
-    inputName.value = product.name;
-    inputPrice.value = product.price;
+    const catalogos = manager.getAll().find(c => c.id === id);
+    inputId.value = catalogos.id;
+    inputNombre.value = catalogos.titulo;
+    inputPrecio.value = catalogos.precio;
+    inputDescripcion.value = catalogos.descripcion;
+    
 }
 
 function deleteCatalogo(id) {
