@@ -59,10 +59,14 @@ button:hover {
     overflow: hidden;
 }
 
-th {
+th, td {
     padding: 12px;
     border: 1px solid #ddd;
     text-align: center;
+    
+}
+
+th {
     background: #86a2b4;
     color: white;
 }
@@ -72,11 +76,11 @@ th {
 }
 
 @media (max-width: 600px) {
-    form {
+    formulario {
         flex-direction: column;
     }
 
-    table, thead, tbody, th, tr {
+    table, thead, tbody, th, td, tr {
         display: block;
     }
 
@@ -84,4 +88,16 @@ th {
         margin-bottom: 15px;
     }
 
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td::before {
+        position: absolute;
+        left: 10px;
+        content: attr(data-label);
+        font-weight: bold;
+    }
 }

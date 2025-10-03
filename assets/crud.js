@@ -23,7 +23,8 @@ class CatalogoManager {
     }
 
     update(updateCatalogo) {
-        this.catalogoProductos = this.catalogoProductos.map(c => this.catalogoProductos.id === updateCatalogo.id ? updateCatalogo : c);
+        this.catalogoProductos = this.catalogoProductos.map(c => c.id === updateCatalogo.id ? updateCatalogo : c);
+        console.log("Actualizando:", updateCatalogo);
         this.save();
     }
 
